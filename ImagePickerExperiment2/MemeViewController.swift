@@ -89,7 +89,7 @@ class MemeViewController: UIViewController, UITextFieldDelegate,  UIImagePickerC
     {
         if(bottomTextField.editing) //only move the view up if editing the bottom text field
         {
-            self.view.frame.origin.y -= getKeyboardHeight(notification)
+            self.view.frame.origin.y = -getKeyboardHeight(notification)
         }
     }
     
@@ -97,7 +97,7 @@ class MemeViewController: UIViewController, UITextFieldDelegate,  UIImagePickerC
     {
         if(bottomTextField.editing) //only move the view back down if editing the bottom text field
         {
-            self.view.frame.origin.y += getKeyboardHeight(notification)
+            self.view.frame.origin.y = 0
         }
     }
     
