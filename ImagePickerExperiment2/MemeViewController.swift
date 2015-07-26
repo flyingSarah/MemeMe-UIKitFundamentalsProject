@@ -26,10 +26,10 @@ class MemeViewController: UIViewController, UITextFieldDelegate,  UIImagePickerC
     //------------------------- VIEW APPEARENCE AND LOADING FUNCTIONS -------------------------
     
     override func viewWillAppear(animated: Bool) {
-        self.hidesBottomBarWhenPushed = true
+        hidesBottomBarWhenPushed = true
         
         //enable keyboard notifications so I can move the view up for the bottom text field
-        self.subscribeToKeyboardNotifications()
+        subscribeToKeyboardNotifications()
         
         super.viewWillAppear(animated)
     }
@@ -63,7 +63,7 @@ class MemeViewController: UIViewController, UITextFieldDelegate,  UIImagePickerC
     override func viewWillDisappear(animated: Bool)
     {
         super.viewWillDisappear(animated)
-        self.unsubscribeFromKeyboardNotifications()
+        unsubscribeFromKeyboardNotifications()
     }
     
     
@@ -81,7 +81,7 @@ class MemeViewController: UIViewController, UITextFieldDelegate,  UIImagePickerC
     func textFieldShouldReturn(textField: UITextField) -> Bool
     {
         //make the keyboard dissapear whenever the user hits return
-        self.view.endEditing(true)
+        view.endEditing(true)
         return true
     }
     
@@ -89,7 +89,7 @@ class MemeViewController: UIViewController, UITextFieldDelegate,  UIImagePickerC
     {
         if(bottomTextField.editing) //only move the view up if editing the bottom text field
         {
-            self.view.frame.origin.y = -getKeyboardHeight(notification)
+            view.frame.origin.y = -getKeyboardHeight(notification)
         }
     }
     
@@ -97,7 +97,7 @@ class MemeViewController: UIViewController, UITextFieldDelegate,  UIImagePickerC
     {
         if(bottomTextField.editing) //only move the view back down if editing the bottom text field
         {
-            self.view.frame.origin.y = 0
+            view.frame.origin.y = 0
         }
     }
     
@@ -130,7 +130,7 @@ class MemeViewController: UIViewController, UITextFieldDelegate,  UIImagePickerC
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func pickAnImageFromCamera(sender: AnyObject)
@@ -138,7 +138,7 @@ class MemeViewController: UIViewController, UITextFieldDelegate,  UIImagePickerC
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         imagePicker.sourceType = UIImagePickerControllerSourceType.Camera
-        self.presentViewController(imagePicker, animated: true, completion: nil)
+        presentViewController(imagePicker, animated: true, completion: nil)
     }
 
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
@@ -151,14 +151,14 @@ class MemeViewController: UIViewController, UITextFieldDelegate,  UIImagePickerC
             imagePickerView.image = image
         }
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
         shareButton.enabled = true
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController)
     {
         
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
 
@@ -205,8 +205,8 @@ class MemeViewController: UIViewController, UITextFieldDelegate,  UIImagePickerC
         toolBar.hidden = true
         
         //render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        self.view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        UIGraphicsBeginImageContext(view.frame.size)
+        view.drawViewHierarchyInRect(view.frame, afterScreenUpdates: true)
         let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
@@ -218,8 +218,8 @@ class MemeViewController: UIViewController, UITextFieldDelegate,  UIImagePickerC
     }
     @IBAction func backToTableViewButton(sender: AnyObject)
     {
-        self.hidesBottomBarWhenPushed = false
-        self.navigationController?.popViewControllerAnimated(true)
+        hidesBottomBarWhenPushed = false
+        navigationController?.popViewControllerAnimated(true)
     }
 }
 

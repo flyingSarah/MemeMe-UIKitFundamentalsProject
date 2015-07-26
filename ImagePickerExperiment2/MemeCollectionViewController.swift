@@ -44,23 +44,23 @@ class MemeCollectionViewController : UICollectionViewController {
     
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath)
     {
-        let detailedController = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
+        let detailedController = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController") as! MemeDetailViewController
         
         //pass the selected meme into the detailed view
         detailedController.meme = self.memes[indexPath.item]
         
         //present the view controller
-        self.navigationController?.showViewController(detailedController, sender: self)
+        navigationController?.showViewController(detailedController, sender: self)
     }
     
     @IBAction func makeNewButton(sender: AnyObject)
     {
-        var editorVC = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeViewController
+        var editorVC = storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeViewController
         
         //we don't want to see the bottom tab bar in the editor view
         editorVC.hidesBottomBarWhenPushed = true
         
-        self.navigationController?.showViewController(editorVC, sender: self)
+        navigationController?.showViewController(editorVC, sender: self)
     }
     
 }

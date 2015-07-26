@@ -19,7 +19,7 @@ class MemeDetailViewController : UIViewController {
         super.viewDidAppear(animated)
 
         //don't show the tab bar controller here
-        self.tabBarController?.tabBar.hidden = true
+        tabBarController?.tabBar.hidden = true
 
         //set the image for this view to the memed image that was passed in
         imageViewer.image = meme.memedImage
@@ -30,6 +30,6 @@ class MemeDetailViewController : UIViewController {
         super.viewWillDisappear(animated)
         
         //let the tab bar show up again
-        self.tabBarController?.tabBar.hidden = false
+        tabBarController?.tabBar.hidden = false
     }
 }

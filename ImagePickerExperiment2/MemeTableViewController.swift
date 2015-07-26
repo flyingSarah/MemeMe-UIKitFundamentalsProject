@@ -46,7 +46,7 @@ class MemeTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         //Grab the detailedVC from Storyboard
-        let object:AnyObject = self.storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController")!
+        let object:AnyObject = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController")!
         
         let detailedVC = object as! MemeDetailViewController
         
@@ -54,16 +54,16 @@ class MemeTableViewController: UITableViewController {
         detailedVC.meme = self.memes[indexPath.row]
         
         //Present the view controller using navigation
-        self.navigationController?.showViewController(detailedVC, sender: self)
+        navigationController?.showViewController(detailedVC, sender: self)
     }
     
     @IBAction func makeNewButton(sender: AnyObject)
     {
-        var editorVC = self.storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeViewController
+        var editorVC = storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeViewController
         
         //we don't want to see the bottom tab bar in the editor view
         editorVC.hidesBottomBarWhenPushed = true
         
-        self.navigationController?.showViewController(editorVC, sender: true)
+        navigationController?.showViewController(editorVC, sender: true)
     }
 }
