@@ -22,7 +22,7 @@ class MemeDetailViewController : UIViewController {
         self.tabBarController?.tabBar.hidden = true
 
         //set the image for this view to the memed image that was passed in
-        self.imageViewer.image = meme.memedImage
+        imageViewer.image = meme.memedImage
     }
     
     override func viewWillDisappear(animated: Bool)

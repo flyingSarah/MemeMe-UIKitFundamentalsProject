@@ -40,22 +40,22 @@ class MemeViewController: UIViewController, UITextFieldDelegate,  UIImagePickerC
         cameraButton.enabled = UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera)
         
         //disable the share button so it doesn't show up until after an image is chosen
-        self.shareButton.enabled = false
+        shareButton.enabled = false
         
         //set the text field delegates and their default text
-        self.topTextField.delegate = self
-        self.bottomTextField.delegate = self
-        self.topTextField.text = topTextFieldDefaultText
-        self.bottomTextField.text = bottomTextFieldDefaultText
+        topTextField.delegate = self
+        bottomTextField.delegate = self
+        topTextField.text = topTextFieldDefaultText
+        bottomTextField.text = bottomTextFieldDefaultText
         
         //set text field attributes
         let memeTextAttributes = [NSStrokeColorAttributeName : UIColor.blackColor(), NSForegroundColorAttributeName : UIColor.whiteColor(), NSFontAttributeName : UIFont(name: "AvenirNext-Heavy", size: 20)!, NSStrokeWidthAttributeName: -3.0]
-        self.topTextField.defaultTextAttributes = memeTextAttributes
-        self.bottomTextField.defaultTextAttributes = memeTextAttributes
+        topTextField.defaultTextAttributes = memeTextAttributes
+        bottomTextField.defaultTextAttributes = memeTextAttributes
         
         //set text filed allignment and make sure they are in front of the image view
-        self.topTextField.textAlignment = .Center
-        self.bottomTextField.textAlignment = .Center
+        topTextField.textAlignment = .Center
+        bottomTextField.textAlignment = .Center
         view.bringSubviewToFront(topTextField)
         view.bringSubviewToFront(bottomTextField)
     }
@@ -144,15 +144,15 @@ class MemeViewController: UIViewController, UITextFieldDelegate,  UIImagePickerC
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
     {
         //set this to make sure the image fills up the view
-        self.imagePickerView.contentMode = UIViewContentMode.ScaleAspectFill
+        imagePickerView.contentMode = UIViewContentMode.ScaleAspectFill
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage
         {
-            self.imagePickerView.image = image
+            imagePickerView.image = image
         }
         
         self.dismissViewControllerAnimated(true, completion: nil)
-        self.shareButton.enabled = true
+        shareButton.enabled = true
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController)

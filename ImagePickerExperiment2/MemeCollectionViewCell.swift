@@ -14,6 +14,6 @@ class MemeCollectionViewCell: UICollectionViewCell {
     
     func setNewMemedImage(newImage: UIImage)
     {
-        self.memedImage.image = newImage
+        memedImage.image = newImage
     }
 }
