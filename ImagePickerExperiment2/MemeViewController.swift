@@ -170,6 +170,7 @@ class MemeViewController: UIViewController, UITextFieldDelegate,  UIImagePickerC
         
         let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         
+        /*  was clued in on how to do this from Eden's response to this thread in the discussion forum:  https://discussions.udacity.com/t/how-to-start-a-tabbarcontroller-from-activityviewcontroller/20416 */
         activityViewController.completionWithItemsHandler = { (activity, completed, items, error) in
             if (completed)
             {
@@ -199,7 +200,6 @@ class MemeViewController: UIViewController, UITextFieldDelegate,  UIImagePickerC
     //Create a UIImage of the combined image and labels
     func generateMemedImage() -> UIImage
     {
-        
         //hide toolbar and nav bar while the image is generating
         navigationController?.setNavigationBarHidden(true, animated: true)
         toolBar.hidden = true
