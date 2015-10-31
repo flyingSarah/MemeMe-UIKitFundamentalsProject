@@ -32,7 +32,7 @@ class MemeTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableViewCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("MemeTableViewCell", forIndexPath: indexPath) 
         
         //pass each meme image and the top text into each tabel cell
         let meme = memes[indexPath.row]
@@ -46,7 +46,7 @@ class MemeTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         //Grab the detailedVC from Storyboard
-        let object:AnyObject = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController")!
+        let object:AnyObject = storyboard!.instantiateViewControllerWithIdentifier("MemeDetailViewController")
         
         let detailedVC = object as! MemeDetailViewController
         
@@ -59,7 +59,7 @@ class MemeTableViewController: UITableViewController {
     
     @IBAction func makeNewButton(sender: AnyObject)
     {
-        var editorVC = storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeViewController
+        let editorVC = storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeViewController
         
         //we don't want to see the bottom tab bar in the editor view
         editorVC.hidesBottomBarWhenPushed = true

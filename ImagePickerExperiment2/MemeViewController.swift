@@ -141,7 +141,7 @@ class MemeViewController: UIViewController, UITextFieldDelegate,  UIImagePickerC
         presentViewController(imagePicker, animated: true, completion: nil)
     }
 
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject])
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject])
     {
         //set this to make sure the image fills up the view
         imagePickerView.contentMode = UIViewContentMode.ScaleAspectFill
@@ -180,7 +180,7 @@ class MemeViewController: UIViewController, UITextFieldDelegate,  UIImagePickerC
             }
             else
             {
-                println("image not saved, try again")
+                print("image not saved, try again")
             }
         }
         
@@ -191,7 +191,7 @@ class MemeViewController: UIViewController, UITextFieldDelegate,  UIImagePickerC
     func save(memedImage: UIImage)
     {
         //create the meme
-        var meme = Meme(topText: topTextField.text!, memedImage: memedImage)
+        let meme = Meme(topText: topTextField.text!, memedImage: memedImage)
         
         let applicationDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
         applicationDelegate.memes.append(meme)

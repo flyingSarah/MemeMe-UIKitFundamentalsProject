@@ -55,7 +55,7 @@ class MemeCollectionViewController : UICollectionViewController {
     
     @IBAction func makeNewButton(sender: AnyObject)
     {
-        var editorVC = storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeViewController
+        let editorVC = storyboard!.instantiateViewControllerWithIdentifier("MemeEditorViewController") as! MemeViewController
         
         //we don't want to see the bottom tab bar in the editor view
         editorVC.hidesBottomBarWhenPushed = true
